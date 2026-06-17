@@ -1,0 +1,24 @@
+# .gitignore — files Git should not track.
+# Keeps the repository to source only: compiler output, IDE folders and local
+# scratch artifacts are regenerated on build and are deliberately excluded.
+
+# Build output
+bin/
+obj/
+*.user
+
+# Rider / VS
+.idea/
+.vs/
+
+# macOS Finder metadata
+.DS_Store
+
+# Local artifacts
+artifacts/
+*.received.*
+
+# Generated feed output written to the repo root (e.g. `... > output2.log`).
+# VivCourt generates output2.log from the source, so it is not part of the submission.
+# (The committed samples/output1.log and the test fixtures are NOT matched — they are not at the root.)
+/output*.log

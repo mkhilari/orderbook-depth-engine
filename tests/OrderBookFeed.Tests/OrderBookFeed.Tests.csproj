@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ==========================================================================
+       OrderBookFeed.Tests.csproj — the xUnit test project.
+
+       Builds and runs the full test suite (unit tests plus the byte-for-byte
+       end-to-end tests) against Core and App. Copies the sample fixtures
+       in Samples/ next to the test binary so the end-to-end tests can read them.
+       ========================================================================== -->
+
+  <PropertyGroup>
+    <RootNamespace>OrderBookFeed.Tests</RootNamespace>
+    <AssemblyName>OrderBookFeed.Tests</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- The test assembly name must match the InternalsVisibleTo declarations
+         in the Core and App projects so internal types can be tested directly. -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OrderBookFeed.Core\OrderBookFeed.Core.csproj" />
+    <ProjectReference Include="..\..\src\OrderBookFeed.App\OrderBookFeed.App.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The provided task sample lives in the repo-root samples/ folder (one source of
+         truth, also discoverable there for manual runs). It is linked in here so the
+         end-to-end test can load it from the test binary's Samples/ directory at runtime. -->
+    <None Include="..\..\samples\input1.stream" Link="Samples\input1.stream" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\samples\output1.log" Link="Samples\output1.log" CopyToOutputDirectory="PreserveNewest" />
+    <!-- ...plus a synthetic multi-symbol, Delete-heavy fixture (test-only) whose expected
+         output was produced by an independent reference implementation (see README sec. 8). -->
+    <None Include="Samples\input_multi.stream" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Samples\output_multi.log" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

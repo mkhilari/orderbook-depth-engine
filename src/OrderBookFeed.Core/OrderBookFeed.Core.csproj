@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ==========================================================================
+       OrderBookFeed.Core.csproj — the I/O-free domain library.
+
+       Builds the core logic (binary decoding, order-book maintenance, depth
+       snapshots) as a standalone library with no console or file dependencies, so
+       every component can be unit-tested directly. The app and test projects
+       reference it.
+       ========================================================================== -->
+
+  <PropertyGroup>
+    <!-- Core domain logic: binary decoding, order book maintenance, depth snapshots.
+         Has no I/O dependencies so it can be unit tested in isolation. -->
+    <RootNamespace>OrderBookFeed</RootNamespace>
+    <AssemblyName>OrderBookFeed.Core</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Allow the test project to unit test internal types (e.g. SideBook) directly. -->
+    <InternalsVisibleTo Include="OrderBookFeed.Tests" />
+  </ItemGroup>
+
+</Project>

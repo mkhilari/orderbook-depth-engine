@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+#
+# OrderBookFeed.sln — the solution that ties the repository together.
+# Groups the three projects — OrderBookFeed.Core (library), OrderBookFeed.App
+# (console executable) and OrderBookFeed.Tests — under src/ and tests/ folders, so
+# the whole thing builds and tests with a single command: `dotnet build` / `dotnet test`.
+#
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D94B750-14F4-44D2-80B1-2583253A8ADB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBookFeed.Core", "src\OrderBookFeed.Core\OrderBookFeed.Core.csproj", "{983634C8-B385-4E06-81E9-A808BD8C6F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBookFeed.App", "src\OrderBookFeed.App\OrderBookFeed.App.csproj", "{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B9AD238E-DA6E-48AC-845B-73EF47BEE86D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBookFeed.Tests", "tests\OrderBookFeed.Tests\OrderBookFeed.Tests.csproj", "{2802522A-7D62-4DFB-A3D3-C1759B42B958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{983634C8-B385-4E06-81E9-A808BD8C6F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983634C8-B385-4E06-81E9-A808BD8C6F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983634C8-B385-4E06-81E9-A808BD8C6F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983634C8-B385-4E06-81E9-A808BD8C6F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2802522A-7D62-4DFB-A3D3-C1759B42B958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2802522A-7D62-4DFB-A3D3-C1759B42B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2802522A-7D62-4DFB-A3D3-C1759B42B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2802522A-7D62-4DFB-A3D3-C1759B42B958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{983634C8-B385-4E06-81E9-A808BD8C6F80} = {0D94B750-14F4-44D2-80B1-2583253A8ADB}
+		{9855043D-CD5A-4AAA-BD8F-6ADE387ADCC0} = {0D94B750-14F4-44D2-80B1-2583253A8ADB}
+		{2802522A-7D62-4DFB-A3D3-C1759B42B958} = {B9AD238E-DA6E-48AC-845B-73EF47BEE86D}
+	EndGlobalSection
+EndGlobal

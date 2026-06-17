@@ -1,0 +1,31 @@
+<Project>
+  <!-- ==========================================================================
+       Directory.Build.props — repository-wide build settings.
+
+       MSBuild automatically imports this file into every project in the repo, so
+       these settings (target framework, language version, nullable, invariant
+       globalization) are defined once and applied consistently to the core library,
+       the app and the tests. To retarget the whole solution to a different .NET
+       runtime, change TargetFramework here — it is the single source of truth.
+       ========================================================================== -->
+  <PropertyGroup>
+    <!-- .NET 8 is the current LTS and a widely available runtime for a grader.
+         To build against a different runtime, change this single value (e.g. net6.0). -->
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+
+    <!-- Run on any installed .NET runtime of version 8 or newer. Targeting net8.0 keeps the
+         build broadly compatible, and roll-forward means the app and tests still run if only a
+         newer runtime (e.g. .NET 9 or 10) is installed and the 8.0 runtime is absent. -->
+    <RollForward>Major</RollForward>
+
+    <!-- Production hygiene: nullable reference types on, warnings treated as errors. -->
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!-- Deterministic, culture-independent builds. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>

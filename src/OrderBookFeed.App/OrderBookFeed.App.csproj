@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ==========================================================================
+       OrderBookFeed.App.csproj — the console executable.
+
+       The thin command-line host that reads the feed and prints depth snapshots.
+       Produces the `OrderBookFeed` binary the grader runs, and references Core for
+       all the actual logic.
+       ========================================================================== -->
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OrderBookFeed.App</RootNamespace>
+    <AssemblyName>OrderBookFeed</AssemblyName>
+    <!-- Invoked by the grader as: OrderBookFeed <levels> [inputPath] -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderBookFeed.Core\OrderBookFeed.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Allow the test project to exercise the CLI parser and the end-to-end pipeline. -->
+    <InternalsVisibleTo Include="OrderBookFeed.Tests" />
+  </ItemGroup>
+
+</Project>
